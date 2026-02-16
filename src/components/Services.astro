@@ -1,0 +1,85 @@
+---
+import { Palette, Code, Lightbulb, Rocket } from 'lucide-astro';
+
+const services = [
+  {
+    icon: Palette,
+    title: 'Brand Identity',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Create memorable brand experiences that resonate with your audience.',
+    color: 'bg-primary/10 text-primary',
+  },
+  {
+    icon: Code,
+    title: 'Web Development',
+    description:
+      'Sed do eiusmod tempor incididunt ut labore. Build fast, responsive websites that convert visitors into customers.',
+    color: 'bg-secondary/10 text-secondary',
+  },
+  {
+    icon: Lightbulb,
+    title: 'Creative Strategy',
+    description:
+      'Ut enim ad minim veniam, quis nostrud exercitation. Develop smart strategies that align with your business goals.',
+    color: 'bg-accent/10 text-orange',
+  },
+  {
+    icon: Rocket,
+    title: 'Digital Launch',
+    description:
+      'Duis aute irure dolor in reprehenderit in voluptate. Launch your product with confidence and momentum.',
+    color: 'bg-purple/10 text-purple',
+  },
+];
+---
+
+<section id="services" class="py-20 lg:py-32 bg-light">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2
+        class="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark mb-6 leading-tight"
+      >
+        What I Do
+      </h2>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Combining
+        creativity with technical expertise to deliver exceptional results for
+        your business.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      {
+        services.map((service) => (
+          <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-colorful transition-all hover:-translate-y-2 border border-gray-100">
+            {/* Icon */}
+            <div
+              class={`w-14 h-14 ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
+            >
+              <service.icon class="w-7 h-7" />
+            </div>
+
+            {/* Content */}
+            <h3 class="text-xl font-bold text-dark mb-3">{service.title}</h3>
+            <p class="text-gray-600 leading-relaxed">{service.description}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-16">
+      <p class="text-gray-600 mb-6">
+        Need something specific? Let's talk about your project.
+      </p>
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-dark text-white rounded-lg font-semibold hover:bg-dark/90 transition-all hover:scale-105"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</section>

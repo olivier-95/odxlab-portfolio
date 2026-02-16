@@ -1,0 +1,240 @@
+---
+/**
+ * ODxLab Logo Component
+ * 
+ * Renders the ODxLab logo as inline SVG with responsive variants.
+ * 
+ * @prop variant - 'full' (desktop), 'compact' (tablet/mobile), 'icon' (icon only)
+ * @prop size - height in pixels (width auto-calculated from aspect ratio)
+ * @prop theme - 'light' (dark text), 'dark' (light text), 'mono' (single color)
+ * @prop class - additional CSS classes
+ * @prop responsive - if true, auto-switches variant by screen size (default: false)
+ */
+
+interface Props {
+  variant?: 'full' | 'compact' | 'icon';
+  size?: number;
+  theme?: 'light' | 'dark' | 'mono';
+  class?: string;
+  responsive?: boolean;
+}
+
+const {
+  variant = 'full',
+  size = 40,
+  theme = 'light',
+  class: className = '',
+  responsive = false,
+} = Astro.props;
+
+// Color maps per theme
+const colors = {
+  light: { text: '#2D3748', dot1: '#FF6B6B', dot2: '#4ECDC4' },
+  dark:  { text: '#F7FAFC', dot1: '#FF6B6B', dot2: '#4ECDC4' },
+  mono:  { text: '#2D3748', dot1: '#2D3748', dot2: '#2D3748' },
+};
+
+const c = colors[theme];
+const useGradient = theme !== 'mono';
+---
+
+{responsive ? (
+  <!-- Responsive mode: show different variants based on screen size -->
+  <span class:list={['logo-responsive inline-flex items-center', className]}>
+    <!-- Desktop: Full logo -->
+    <span class="hidden md:inline-flex">
+      <svg
+        viewBox="0 0 480 120"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={`height: ${size}px; width: auto;`}
+        role="img"
+        aria-label="ODxLab"
+      >
+        {useGradient && (
+          <defs>
+            <linearGradient id="gx-resp-full" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF6B6B"/>
+              <stop offset="50%" stop-color="#4ECDC4"/>
+              <stop offset="100%" stop-color="#FFE66D"/>
+            </linearGradient>
+          </defs>
+        )}
+        <path d="M28 30C12.536 30 0 42.536 0 58v4c0 15.464 12.536 28 28 28h4c15.464 0 28-12.536 28-28v-4C60 42.536 47.464 30 32 30h-4Zm-2 16c-6.627 0-12 5.373-12 12v4c0 6.627 5.373 12 12 12h8c6.627 0 12-5.373 12-12v-4c0-6.627-5.373-12-12-12h-8Z" fill={c.text}/>
+        <path d="M76 30c-2.21 0-4 1.79-4 4v52c0 2.21 1.79 4 4 4h20c15.464 0 28-12.536 28-28v-4c0-15.464-12.536-28-28-28H76Zm4 16h16c6.627 0 12 5.373 12 12v4c0 6.627-5.373 12-12 12H80V46Z" fill={c.text}/>
+        <g transform="translate(138, 30)">
+          <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(45, 24, 30)" fill={useGradient ? 'url(#gx-resp-full)' : c.text}/>
+          <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(-45, 24, 30)" fill={useGradient ? 'url(#gx-resp-full)' : c.text}/>
+          <circle cx="24" cy="30" r="6" fill={useGradient ? '#FFE66D' : c.text}/>
+        </g>
+        <path d="M204 30c-2.21 0-4 1.79-4 4v52c0 2.21 1.79 4 4 4h36c2.21 0 4-1.79 4-4v-8c0-2.21-1.79-4-4-4h-20V34c0-2.21-1.79-4-4-4h-8Z" fill={c.text}/>
+        <path d="M268 42c-13.255 0-24 10.745-24 24v2c0 13.255 10.745 24 24 24h2c9.941 0 18.441-6.044 22.079-14.657.15-.356.29-.717.421-1.083V86c0 2.21 1.79 4 4 4h8c2.21 0 4-1.79 4-4V66c0-13.255-10.745-24-24-24h-16.5Zm-.5 16h13c4.418 0 8 3.582 8 8v2c0 4.418-3.582 8-8 8h-13c-4.418 0-8-3.582-8-8v-2c0-4.418 3.582-8 8-8Z" fill={c.text}/>
+        <path d="M324 20c-2.21 0-4 1.79-4 4v62c0 2.21 1.79 4 4 4h20c13.255 0 24-10.745 24-24v-2c0-13.255-10.745-24-24-24h-6V24c0-2.21-1.79-4-4-4h-8Zm10 38h10c4.418 0 8 3.582 8 8v2c0 4.418-3.582 8-8 8h-10c-4.418 0-8-3.582-8-8v-2c0-4.418 3.582-8 8-8Z" fill={c.text}/>
+        <circle cx="186" cy="88" r="5" fill={c.dot1}/>
+        <circle cx="376" cy="88" r="5" fill={c.dot2}/>
+      </svg>
+    </span>
+
+    <!-- Tablet: Compact ODx -->
+    <span class="hidden sm:inline-flex md:hidden">
+      <svg
+        viewBox="0 0 200 120"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={`height: ${size}px; width: auto;`}
+        role="img"
+        aria-label="ODxLab"
+      >
+        {useGradient && (
+          <defs>
+            <linearGradient id="gx-resp-compact" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF6B6B"/>
+              <stop offset="50%" stop-color="#4ECDC4"/>
+              <stop offset="100%" stop-color="#FFE66D"/>
+            </linearGradient>
+          </defs>
+        )}
+        <path d="M28 30C12.536 30 0 42.536 0 58v4c0 15.464 12.536 28 28 28h4c15.464 0 28-12.536 28-28v-4C60 42.536 47.464 30 32 30h-4Zm-2 16c-6.627 0-12 5.373-12 12v4c0 6.627 5.373 12 12 12h8c6.627 0 12-5.373 12-12v-4c0-6.627-5.373-12-12-12h-8Z" fill={c.text}/>
+        <path d="M76 30c-2.21 0-4 1.79-4 4v52c0 2.21 1.79 4 4 4h20c15.464 0 28-12.536 28-28v-4c0-15.464-12.536-28-28-28H76Zm4 16h16c6.627 0 12 5.373 12 12v4c0 6.627-5.373 12-12 12H80V46Z" fill={c.text}/>
+        <g transform="translate(138, 30)">
+          <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(45, 24, 30)" fill={useGradient ? 'url(#gx-resp-compact)' : c.text}/>
+          <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(-45, 24, 30)" fill={useGradient ? 'url(#gx-resp-compact)' : c.text}/>
+          <circle cx="24" cy="30" r="6" fill={useGradient ? '#FFE66D' : c.text}/>
+        </g>
+        <circle cx="186" cy="88" r="5" fill={c.dot1}/>
+      </svg>
+    </span>
+
+    <!-- Mobile: Icon only -->
+    <span class="inline-flex sm:hidden">
+      <svg
+        viewBox="0 0 100 100"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={`height: ${size}px; width: ${size}px;`}
+        role="img"
+        aria-label="ODxLab"
+      >
+        {useGradient && (
+          <defs>
+            <linearGradient id="gx-resp-icon" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF6B6B"/>
+              <stop offset="50%" stop-color="#4ECDC4"/>
+              <stop offset="100%" stop-color="#FFE66D"/>
+            </linearGradient>
+            <linearGradient id="gbg-resp-icon" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2D3748"/>
+              <stop offset="100%" stop-color="#1A202C"/>
+            </linearGradient>
+          </defs>
+        )}
+        <rect width="100" height="100" rx="22" fill={useGradient ? 'url(#gbg-resp-icon)' : c.text}/>
+        <g transform="translate(50, 50)">
+          <rect x="-8" y="-28" width="16" height="56" rx="8" transform="rotate(45)" fill={useGradient ? 'url(#gx-resp-icon)' : '#fff'}/>
+          <rect x="-8" y="-28" width="16" height="56" rx="8" transform="rotate(-45)" fill={useGradient ? 'url(#gx-resp-icon)' : '#fff'}/>
+          <circle cx="0" cy="0" r="5" fill={useGradient ? '#FFE66D' : '#fff'}/>
+        </g>
+        <circle cx="18" cy="18" r="4" fill="#FF6B6B" opacity="0.6"/>
+        <circle cx="82" cy="82" r="4" fill="#4ECDC4" opacity="0.6"/>
+      </svg>
+    </span>
+  </span>
+) : (
+  <!-- Single variant mode -->
+  <span class:list={['inline-flex items-center', className]}>
+    {variant === 'full' && (
+      <svg
+        viewBox="0 0 480 120"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={`height: ${size}px; width: auto;`}
+        role="img"
+        aria-label="ODxLab"
+      >
+        {useGradient && (
+          <defs>
+            <linearGradient id="gx-single" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF6B6B"/>
+              <stop offset="50%" stop-color="#4ECDC4"/>
+              <stop offset="100%" stop-color="#FFE66D"/>
+            </linearGradient>
+          </defs>
+        )}
+        <path d="M28 30C12.536 30 0 42.536 0 58v4c0 15.464 12.536 28 28 28h4c15.464 0 28-12.536 28-28v-4C60 42.536 47.464 30 32 30h-4Zm-2 16c-6.627 0-12 5.373-12 12v4c0 6.627 5.373 12 12 12h8c6.627 0 12-5.373 12-12v-4c0-6.627-5.373-12-12-12h-8Z" fill={c.text}/>
+        <path d="M76 30c-2.21 0-4 1.79-4 4v52c0 2.21 1.79 4 4 4h20c15.464 0 28-12.536 28-28v-4c0-15.464-12.536-28-28-28H76Zm4 16h16c6.627 0 12 5.373 12 12v4c0 6.627-5.373 12-12 12H80V46Z" fill={c.text}/>
+        <g transform="translate(138, 30)">
+          <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(45, 24, 30)" fill={useGradient ? 'url(#gx-single)' : c.text}/>
+          <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(-45, 24, 30)" fill={useGradient ? 'url(#gx-single)' : c.text}/>
+          <circle cx="24" cy="30" r="6" fill={useGradient ? '#FFE66D' : c.text}/>
+        </g>
+        <path d="M204 30c-2.21 0-4 1.79-4 4v52c0 2.21 1.79 4 4 4h36c2.21 0 4-1.79 4-4v-8c0-2.21-1.79-4-4-4h-20V34c0-2.21-1.79-4-4-4h-8Z" fill={c.text}/>
+        <path d="M268 42c-13.255 0-24 10.745-24 24v2c0 13.255 10.745 24 24 24h2c9.941 0 18.441-6.044 22.079-14.657.15-.356.29-.717.421-1.083V86c0 2.21 1.79 4 4 4h8c2.21 0 4-1.79 4-4V66c0-13.255-10.745-24-24-24h-16.5Zm-.5 16h13c4.418 0 8 3.582 8 8v2c0 4.418-3.582 8-8 8h-13c-4.418 0-8-3.582-8-8v-2c0-4.418 3.582-8 8-8Z" fill={c.text}/>
+        <path d="M324 20c-2.21 0-4 1.79-4 4v62c0 2.21 1.79 4 4 4h20c13.255 0 24-10.745 24-24v-2c0-13.255-10.745-24-24-24h-6V24c0-2.21-1.79-4-4-4h-8Zm10 38h10c4.418 0 8 3.582 8 8v2c0 4.418-3.582 8-8 8h-10c-4.418 0-8-3.582-8-8v-2c0-4.418 3.582-8 8-8Z" fill={c.text}/>
+        <circle cx="186" cy="88" r="5" fill={c.dot1}/>
+        <circle cx="376" cy="88" r="5" fill={c.dot2}/>
+      </svg>
+    )}
+
+    {variant === 'compact' && (
+      <svg
+        viewBox="0 0 200 120"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={`height: ${size}px; width: auto;`}
+        role="img"
+        aria-label="ODxLab"
+      >
+        {useGradient && (
+          <defs>
+            <linearGradient id="gx-compact-s" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF6B6B"/>
+              <stop offset="50%" stop-color="#4ECDC4"/>
+              <stop offset="100%" stop-color="#FFE66D"/>
+            </linearGradient>
+          </defs>
+        )}
+        <path d="M28 30C12.536 30 0 42.536 0 58v4c0 15.464 12.536 28 28 28h4c15.464 0 28-12.536 28-28v-4C60 42.536 47.464 30 32 30h-4Zm-2 16c-6.627 0-12 5.373-12 12v4c0 6.627 5.373 12 12 12h8c6.627 0 12-5.373 12-12v-4c0-6.627-5.373-12-12-12h-8Z" fill={c.text}/>
+        <path d="M76 30c-2.21 0-4 1.79-4 4v52c0 2.21 1.79 4 4 4h20c15.464 0 28-12.536 28-28v-4c0-15.464-12.536-28-28-28H76Zm4 16h16c6.627 0 12 5.373 12 12v4c0 6.627-5.373 12-12 12H80V46Z" fill={c.text}/>
+        <g transform="translate(138, 30)">
+          <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(45, 24, 30)" fill={useGradient ? 'url(#gx-compact-s)' : c.text}/>
+          <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(-45, 24, 30)" fill={useGradient ? 'url(#gx-compact-s)' : c.text}/>
+          <circle cx="24" cy="30" r="6" fill={useGradient ? '#FFE66D' : c.text}/>
+        </g>
+        <circle cx="186" cy="88" r="5" fill={c.dot1}/>
+      </svg>
+    )}
+
+    {variant === 'icon' && (
+      <svg
+        viewBox="0 0 100 100"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={`height: ${size}px; width: ${size}px;`}
+        role="img"
+        aria-label="ODxLab"
+      >
+        {useGradient && (
+          <defs>
+            <linearGradient id="gx-icon-s" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF6B6B"/>
+              <stop offset="50%" stop-color="#4ECDC4"/>
+              <stop offset="100%" stop-color="#FFE66D"/>
+            </linearGradient>
+            <linearGradient id="gbg-icon-s" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2D3748"/>
+              <stop offset="100%" stop-color="#1A202C"/>
+            </linearGradient>
+          </defs>
+        )}
+        <rect width="100" height="100" rx="22" fill={useGradient ? 'url(#gbg-icon-s)' : c.text}/>
+        <g transform="translate(50, 50)">
+          <rect x="-8" y="-28" width="16" height="56" rx="8" transform="rotate(45)" fill={useGradient ? 'url(#gx-icon-s)' : '#ffffff'}/>
+          <rect x="-8" y="-28" width="16" height="56" rx="8" transform="rotate(-45)" fill={useGradient ? 'url(#gx-icon-s)' : '#ffffff'}/>
+          <circle cx="0" cy="0" r="5" fill={useGradient ? '#FFE66D' : '#ffffff'}/>
+        </g>
+        <circle cx="18" cy="18" r="4" fill="#FF6B6B" opacity="0.6"/>
+        <circle cx="82" cy="82" r="4" fill="#4ECDC4" opacity="0.6"/>
+      </svg>
+    )}
+  </span>
+)}

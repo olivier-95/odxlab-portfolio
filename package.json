@@ -1,0 +1,21 @@
+{
+  "name": "test-app",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "generate:favicons": "node scripts/generate-favicons.js"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.17.1",
+    "lucide-astro": "^0.556.0",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}

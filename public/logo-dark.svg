@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" fill="none">
+  <title>ODxLab - Creative Freelance Studio</title>
+  <desc>ODxLab logo for dark backgrounds</desc>
+  <defs>
+    <linearGradient id="grad-x-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B6B"/>
+      <stop offset="50%" stop-color="#4ECDC4"/>
+      <stop offset="100%" stop-color="#FFE66D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- O -->
+  <path d="M28 30C12.536 30 0 42.536 0 58v4c0 15.464 12.536 28 28 28h4c15.464 0 28-12.536 28-28v-4C60 42.536 47.464 30 32 30h-4Zm-2 16c-6.627 0-12 5.373-12 12v4c0 6.627 5.373 12 12 12h8c6.627 0 12-5.373 12-12v-4c0-6.627-5.373-12-12-12h-8Z" fill="#F7FAFC"/>
+
+  <!-- D -->
+  <path d="M76 30c-2.21 0-4 1.79-4 4v52c0 2.21 1.79 4 4 4h20c15.464 0 28-12.536 28-28v-4c0-15.464-12.536-28-28-28H76Zm4 16h16c6.627 0 12 5.373 12 12v4c0 6.627-5.373 12-12 12H80V46Z" fill="#F7FAFC"/>
+
+  <!-- x (special playful treatment) -->
+  <g transform="translate(138, 30)">
+    <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(45, 24, 30)" fill="url(#grad-x-dark)"/>
+    <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(-45, 24, 30)" fill="url(#grad-x-dark)"/>
+    <circle cx="24" cy="30" r="6" fill="#FFE66D"/>
+  </g>
+
+  <!-- L -->
+  <path d="M204 30c-2.21 0-4 1.79-4 4v52c0 2.21 1.79 4 4 4h36c2.21 0 4-1.79 4-4v-8c0-2.21-1.79-4-4-4h-20V34c0-2.21-1.79-4-4-4h-8Z" fill="#F7FAFC"/>
+
+  <!-- a -->
+  <path d="M268 42c-13.255 0-24 10.745-24 24v2c0 13.255 10.745 24 24 24h2c9.941 0 18.441-6.044 22.079-14.657.15-.356.29-.717.421-1.083V86c0 2.21 1.79 4 4 4h8c2.21 0 4-1.79 4-4V66c0-13.255-10.745-24-24-24h-16.5Zm-.5 16h13c4.418 0 8 3.582 8 8v2c0 4.418-3.582 8-8 8h-13c-4.418 0-8-3.582-8-8v-2c0-4.418 3.582-8 8-8Z" fill="#F7FAFC"/>
+
+  <!-- b -->
+  <path d="M324 20c-2.21 0-4 1.79-4 4v62c0 2.21 1.79 4 4 4h20c13.255 0 24-10.745 24-24v-2c0-13.255-10.745-24-24-24h-6V24c0-2.21-1.79-4-4-4h-8Zm10 38h10c4.418 0 8 3.582 8 8v2c0 4.418-3.582 8-8 8h-10c-4.418 0-8-3.582-8-8v-2c0-4.418 3.582-8 8-8Z" fill="#F7FAFC"/>
+
+  <!-- Playful dot accents -->
+  <circle cx="186" cy="88" r="5" fill="#FF6B6B"/>
+  <circle cx="376" cy="88" r="5" fill="#4ECDC4"/>
+</svg>

@@ -1,0 +1,125 @@
+---
+import { ExternalLink } from 'lucide-astro';
+
+const projects = [
+  {
+    title: 'Project Alpha',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Modern e-commerce platform with seamless checkout experience.',
+    tags: ['Branding', 'Web Design', 'React'],
+    gradient: 'from-primary to-secondary',
+  },
+  {
+    title: 'Project Beta',
+    description:
+      'Sed do eiusmod tempor incididunt ut labore. Mobile-first SaaS dashboard with real-time analytics.',
+    tags: ['UI/UX', 'Development', 'Tailwind'],
+    gradient: 'from-secondary to-accent',
+  },
+  {
+    title: 'Project Gamma',
+    description:
+      'Ut enim ad minim veniam, quis nostrud exercitation. Brand refresh and marketing website for growing startup.',
+    tags: ['Branding', 'Design', 'Strategy'],
+    gradient: 'from-accent to-orange',
+  },
+  {
+    title: 'Project Delta',
+    description:
+      'Duis aute irure dolor in reprehenderit. Portfolio website for creative agency with custom animations.',
+    tags: ['Web Design', 'Animation', 'Astro'],
+    gradient: 'from-purple to-pink',
+  },
+  {
+    title: 'Project Epsilon',
+    description:
+      'Excepteur sint occaecat cupidatat non proident. E-learning platform with interactive course builder.',
+    tags: ['Full Stack', 'UI/UX', 'TypeScript'],
+    gradient: 'from-pink to-primary',
+  },
+  {
+    title: 'Project Zeta',
+    description:
+      'Sunt in culpa qui officia deserunt mollit. Restaurant booking app with reservation management.',
+    tags: ['Mobile', 'Backend', 'Design'],
+    gradient: 'from-orange to-secondary',
+  },
+];
+---
+
+<section id="work" class="py-20 lg:py-32 bg-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2
+        class="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark mb-6 leading-tight"
+      >
+        Featured Work
+      </h2>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. A selection of
+        projects I'm proud to have worked on with amazing clients.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
+      {
+        projects.map((project) => (
+          <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-colorful-lg transition-all hover:-translate-y-2 border border-gray-100">
+            {/* Project Image Placeholder */}
+            <div
+              class={`aspect-video bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}
+            >
+              {/* Decorative elements */}
+              <div class="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-colors" />
+              <div class="relative z-10">
+                <ExternalLink class="w-12 h-12 text-white/70 group-hover:text-white group-hover:scale-110 transition-all" />
+              </div>
+              {/* Replace with actual project image:
+              <img 
+                src={project.image} 
+                alt={project.title}
+                class="w-full h-full object-cover"
+              />
+              */}
+            </div>
+
+            {/* Project Content */}
+            <div class="p-6 lg:p-8">
+              <h3 class="text-2xl font-bold text-dark mb-3 group-hover:text-primary transition-colors">
+                {project.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                {project.description}
+              </p>
+
+              {/* Tags */}
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span class="px-3 py-1 bg-light text-dark rounded-full text-sm font-medium">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-16">
+      <p class="text-gray-600 mb-6">
+        Want to see more? Check out my full portfolio or let's discuss your
+        project.
+      </p>
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 hover:shadow-colorful transition-all hover:scale-105"
+      >
+        Start a Project
+      </a>
+    </div>
+  </div>
+</section>

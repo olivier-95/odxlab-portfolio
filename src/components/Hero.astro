@@ -1,0 +1,85 @@
+---
+import { Sparkles, ArrowRight } from 'lucide-astro';
+---
+
+<section
+  id="home"
+  class="relative min-h-[90vh] flex items-center justify-center overflow-hidden gradient-hero"
+>
+  <!-- Decorative blobs -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div
+      class="absolute top-20 left-10 w-72 h-72 bg-accent/30 rounded-full blur-3xl animate-pulse"
+    >
+    </div>
+    <div
+      class="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse"
+      style="animation-delay: 1s;"
+    >
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+    <div class="text-center max-w-4xl mx-auto">
+      <!-- Badge -->
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full text-sm font-medium text-dark mb-6 shadow-lg"
+      >
+        <Sparkles class="w-4 h-4 text-accent" />
+        <span>Creative Solutions for Growing Businesses</span>
+      </div>
+
+      <!-- Main Heading -->
+      <h1
+        class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight"
+      >
+        Bold Ideas Meet
+        <br />
+        <span class="text-accent">Joyful Execution</span>
+      </h1>
+
+      <!-- Subheading -->
+      <p
+        class="text-lg sm:text-xl lg:text-2xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed"
+      >
+        Modern, playful design and development for small businesses ready to
+        stand out. Let's bring your vision to life with creativity and care.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a
+          href="#work"
+          class="group px-8 py-4 bg-white text-primary rounded-xl font-semibold hover:shadow-colorful-lg transition-all hover:scale-105 inline-flex items-center gap-2"
+        >
+          View My Work
+          <ArrowRight
+            class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+          />
+        </a>
+        <a
+          href="#contact"
+          class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-semibold hover:bg-white/20 transition-all inline-flex items-center gap-2"
+        >
+          Let's Talk
+        </a>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="mt-16 animate-bounce">
+        <svg
+          class="w-6 h-6 mx-auto text-white/70"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,87 @@
+---
+import { User } from 'lucide-astro';
+---
+
+<section id="about" class="py-20 lg:py-32 bg-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Image/Avatar Side -->
+      <div class="order-2 lg:order-1">
+        <div
+          class="relative aspect-square max-w-md mx-auto lg:mx-0 rounded-3xl overflow-hidden shadow-colorful-lg"
+        >
+          <!-- Placeholder with gradient background -->
+          <div class="w-full h-full gradient-accent flex items-center justify-center">
+            <User class="w-32 h-32 text-white/50" />
+          </div>
+          <!-- Replace this div with your actual image:
+          <img 
+            src="/your-photo.jpg" 
+            alt="Your Name" 
+            class="w-full h-full object-cover"
+          />
+          -->
+        </div>
+      </div>
+
+      <!-- Content Side -->
+      <div class="order-1 lg:order-2">
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark mb-6 leading-tight"
+        >
+          Hi, I'm <span class="text-primary">[Your Name]</span>
+        </h2>
+
+        <div class="space-y-4 text-lg text-gray-700 leading-relaxed mb-8">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris.
+          </p>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+            quae ab illo inventore veritatis.
+          </p>
+        </div>
+
+        <!-- Skills/Tags -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold text-dark mb-4">Skills & Expertise</h3>
+          <div class="flex flex-wrap gap-3">
+            {
+              [
+                'Web Design',
+                'Branding',
+                'UI/UX',
+                'React',
+                'Tailwind CSS',
+                'Figma',
+                'Typography',
+                'Illustration',
+              ].map((skill) => (
+                <span class="px-4 py-2 bg-light text-dark rounded-full text-sm font-medium border border-gray-200 hover:border-primary hover:text-primary transition-colors">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <a
+          href="#contact"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 hover:shadow-colorful transition-all hover:scale-105"
+        >
+          Let's Work Together
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

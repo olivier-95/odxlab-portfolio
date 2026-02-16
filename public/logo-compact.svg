@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none">
+  <title>ODxLab</title>
+  <desc>ODxLab compact logo - ODx mark for mobile and small spaces</desc>
+  <defs>
+    <linearGradient id="grad-x-compact" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B6B"/>
+      <stop offset="50%" stop-color="#4ECDC4"/>
+      <stop offset="100%" stop-color="#FFE66D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- O -->
+  <path d="M28 30C12.536 30 0 42.536 0 58v4c0 15.464 12.536 28 28 28h4c15.464 0 28-12.536 28-28v-4C60 42.536 47.464 30 32 30h-4Zm-2 16c-6.627 0-12 5.373-12 12v4c0 6.627 5.373 12 12 12h8c6.627 0 12-5.373 12-12v-4c0-6.627-5.373-12-12-12h-8Z" fill="#2D3748"/>
+
+  <!-- D -->
+  <path d="M76 30c-2.21 0-4 1.79-4 4v52c0 2.21 1.79 4 4 4h20c15.464 0 28-12.536 28-28v-4c0-15.464-12.536-28-28-28H76Zm4 16h16c6.627 0 12 5.373 12 12v4c0 6.627-5.373 12-12 12H80V46Z" fill="#2D3748"/>
+
+  <!-- x (gradient, playful) -->
+  <g transform="translate(138, 30)">
+    <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(45, 24, 30)" fill="url(#grad-x-compact)"/>
+    <rect x="8" y="0" width="16" height="64" rx="8" transform="rotate(-45, 24, 30)" fill="url(#grad-x-compact)"/>
+    <circle cx="24" cy="30" r="6" fill="#FFE66D"/>
+  </g>
+
+  <!-- Accent dot -->
+  <circle cx="186" cy="88" r="5" fill="#FF6B6B"/>
+</svg>
