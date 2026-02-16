@@ -13,8 +13,10 @@ const {
   image = '/og-image.jpg',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const siteUrl = Astro.site || 'https://odxlab.com';
+// Fallback to production URL if site is not configured (prevents TypeError)
+// See: tests/layout-url-regression.test.ts for regression coverage
+const siteUrl = Astro.site || new URL('https://odxlab.com');
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const ogImage = new URL(image, siteUrl).toString();
 ---
 

@@ -221,7 +221,40 @@ PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 | `npm run dev`          | Start dev server at `localhost:4321`      |
 | `npm run build`        | Build production site to `./dist/`        |
 | `npm run preview`      | Preview production build locally          |
+| `npm test`             | Run all tests once                        |
+| `npm run test:watch`   | Run tests in watch mode                   |
+| `npm run test:ui`      | Run tests with UI                         |
 | `npm run generate:favicons` | Regenerate favicon PNGs from SVG  |
+
+## 🧪 Testing
+
+This project includes comprehensive regression tests to ensure code quality and prevent bugs.
+
+**Test Suite:**
+- 38 unit and integration tests
+- ~400ms execution time
+- Covers Layout.astro URL construction, configuration validation, and edge cases
+
+**Running Tests:**
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode (auto-rerun on changes)
+npm run test:watch
+
+# Run tests with interactive UI
+npm run test:ui
+```
+
+**Test Documentation:**
+- See `tests/README.md` for test structure and guidelines
+- See `tests/TEST_SUMMARY.md` for detailed test coverage
+
+**Test Coverage:**
+- ✅ Layout.astro URL construction (17 tests)
+- ✅ Integration tests (13 tests)
+- ✅ Configuration validation (8 tests)
 
 ## 🐛 Troubleshooting
 
